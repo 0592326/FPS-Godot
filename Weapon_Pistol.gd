@@ -11,6 +11,10 @@ var bullet_scene = preload("Bullet_Scene.tscn")
 
 var player_node = null
 
+var ammo_in_weapon = 10
+var spare_ammo = 20
+const AMMO_IN_MAG = 10
+
 func _ready():
 	pass
 
@@ -22,6 +26,7 @@ func fire_weapon():
 	clone.global_transform = self.global_transform
 	clone.scale = Vector3(4, 4, 4)
 	clone.BULLET_DAMAGE = DAMAGE
+	ammo_in_weapon -= 1
 
 func equip_weapon():
 	if player_node.animation_manager.current_state == IDLE_ANIM_NAME:

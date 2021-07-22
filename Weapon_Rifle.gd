@@ -9,6 +9,10 @@ var is_weapon_enabled = false
 
 var player_node = null
 
+var ammo_in_weapon = 50
+var spare_ammo = 100
+const AMMO_IN_MAG = 50
+
 func _ready():
 	pass
 
@@ -23,6 +27,8 @@ func fire_weapon():
 			pass
 		elif body.has_method("bullet_hit"):
 			body.bullet_hit(DAMAGE, ray.global_transform)
+
+	ammo_in_weapon -= 1
 
 func equip_weapon():
 	if player_node.animation_manager.current_state == IDLE_ANIM_NAME:
