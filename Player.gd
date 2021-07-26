@@ -36,6 +36,8 @@ var changing_weapon_name = "UNARMED"
 var health = 100
 
 var UI_status_label
+
+var reloading_weapon = false # Checks to see if the player is currently trying to reload.
 # ----------------------------------
 
 func _ready():
@@ -70,6 +72,8 @@ func _physics_process(delta):
 	process_input(delta)
 	process_movement(delta)
 	process_changing_weapons(delta)
+	process_UI(delta)
+	process_reloading(delta)
 
 func process_input(delta):
 	# ----------------------------------
@@ -127,6 +131,8 @@ func process_input(delta):
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	# ----------------------------------
 
+	# ----------------------------------
+	# Changing weapons
 	var weapon_change_number = WEAPON_NAME_TO_NUMBER[current_weapon_name]
 	if Input.is_key_pressed(KEY_1):
 		weapon_change_number = 0
@@ -145,19 +151,43 @@ func process_input(delta):
 	weapon_change_number = clamp(weapon_change_number, 0, WEAPON_NUMBER_TO_NAME.size() - 1)
 
 	if changing_weapon == false:
-		if WEAPON_NUMBER_TO_NAME[weapon_change_number] != current_weapon_name:
-			changing_weapon_name = WEAPON_NUMBER_TO_NAME[weapon_change_number]
-			changing_weapon = true
+		if reloading_weapon == false:
+			if WEAPON_NUMBER_TO_NAME[weapon_change_number] != current_weapon_name:
+				changing_weapon_name = WEAPON_NUMBER_TO_NAME[weapon_change_number]
+				changing_weapon = true
 # ----------------------------------
 
 # ----------------------------------
 # Firing the weapons
 	if Input.is_action_pressed("fire"):
+		if reloading_weapon == false:
+			if changing_weapon == false:
+				var current_weapon = weapons[current_weapon_name]
+				if current_weapon != null:
+					if current_weapon.ammo_in_weapon > 0:
+						if animation_manager.current_state == current_weapon.IDLE_ANIM_NAME:
+							animation_manager.set_animation(current_weapon.FIRE_ANIM_NAME)
+					else:
+						reloading_weapon = true
+# ----------------------------------
+
+# ----------------------------------
+# Reloading
+	if reloading_weapon == false:
 		if changing_weapon == false:
-			var current_weapon = weapons[current_weapon_name]
-			if current_weapon != null:
-				if animation_manager.current_state == current_weapon.IDLE_ANIM_NAME:
-					animation_manager.set_animation(current_weapon.FIRE_ANIM_NAME)
+			if Input.is_action_just_pressed("reload"):
+				var current_weapon = weapons[current_weapon_name]
+				if current_weapon != null:
+					if current_weapon.CAN_RELOAD == true:
+						var current_anim_state = animation_manager.current_state
+						var is_reloading = false
+						for weapon in weapons:
+							var weapon_node = weapons[weapon]
+							if weapon_node != null:
+								if current_anim_state == weapon_node.RELOADING_ANIM_NAME:
+									is_reloading = true
+						if is_reloading == false:
+							reloading_weapon = true
 # ----------------------------------
 
 func process_changing_weapons(delta):
@@ -236,3 +266,21 @@ func _input(event):
 		var camera_rot = rotation_helper.rotation_degrees
 		camera_rot.x = clamp(camera_rot.x, -70, 70)
 		rotation_helper.rotation_degrees = camera_rot
+
+func process_UI(delta):
+	if current_weapon_name == "UNARMED" or current_weapon_name == "KNIFE":
+		UI_status_label.text = "HEALTH: " + str(health)
+	else:
+		var current_weapon = weapons[current_weapon_name]
+		UI_status_label.text = "HEALTH: " + str(health) + \
+				"\nAMMO: " + str(current_weapon.ammo_in_weapon) + "/" + str(current_weapon.spare_ammo)
+
+	# ----------------------------------
+	# Reloading the weapon
+func process_reloading(delta):
+	if reloading_weapon == true:
+		var current_weapon = weapons[current_weapon_name]
+		if current_weapon != null:
+			current_weapon.reload_weapon()
+		reloading_weapon = false
+	# ----------------------------------
