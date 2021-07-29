@@ -1,6 +1,6 @@
 extends Spatial
 
-const DAMAGE = 4
+const DAMAGE = 10
 
 const IDLE_ANIM_NAME = "Rifle_idle"
 const FIRE_ANIM_NAME = "Rifle_fire"
@@ -34,6 +34,8 @@ func fire_weapon():
 			body.bullet_hit(DAMAGE, ray.global_transform)
 
 	ammo_in_weapon -= 1
+
+	player_node.create_sound("Rifle_shot", ray.global_transform.origin)
 
 func equip_weapon():
 	if player_node.animation_manager.current_state == IDLE_ANIM_NAME:
@@ -77,6 +79,7 @@ func reload_weapon():
 			spare_ammo = 0
 
 		player_node.animation_manager.set_animation(RELOADING_ANIM_NAME)
+		player_node.create_sound("Gun_cock", player_node.camera.global_transform.origin)
 
 		return true
 

@@ -22,6 +22,8 @@ var is_sprinting = false
 
 var flashlight
 
+var simple_audio_player = preload("res://Simple_Audio_Player.tscn")
+
 # ----------------------------------
 # Weapons
 var animation_manager
@@ -284,3 +286,9 @@ func process_reloading(delta):
 			current_weapon.reload_weapon()
 		reloading_weapon = false
 	# ----------------------------------
+	# Audio stuff
+func create_sound(sound_name, position=null):
+	var audio_clone = simple_audio_player.instance()
+	var scene_root = get_tree().root.get_children()[0]
+	scene_root.add_child(audio_clone)
+	audio_clone.play_sound(sound_name, position)
