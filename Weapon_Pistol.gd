@@ -1,6 +1,6 @@
 extends Spatial
 
-const DAMAGE = 25
+const DAMAGE = 25 # Damage dealt with each pistol shot.
 
 const IDLE_ANIM_NAME = "Pistol_idle"
 const FIRE_ANIM_NAME = "Pistol_fire"

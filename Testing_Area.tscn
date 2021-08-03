@@ -1,7 +1,10 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://RigidBody_hit_test.gd" type="Script" id=2]
+[ext_resource path="res://Health_Pickup.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Ammo_Pickup.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Target.tscn" type="PackedScene" id=5]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 80, 80 )
@@ -328,3 +331,37 @@ shape = SubResource( 8 )
 [node name="MeshInstance" type="MeshInstance" parent="Cubes/GreenCube6"]
 mesh = SubResource( 9 )
 material/0 = SubResource( 12 )
+
+[node name="Health_Pickup" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 3, 0 )
+
+[node name="Health_Pickup2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 3, 32 )
+kit_size = 1
+
+[node name="Health_Pickup3" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 3, -32 )
+kit_size = 1
+
+[node name="Ammo_Pickup" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 3, 32 )
+kit_size = 1
+
+[node name="Ammo_Pickup2" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 3, -32 )
+kit_size = 1
+
+[node name="Ammo_Pickup3" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 3, 0 )
+
+[node name="Target_Whole" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, 39.5 )
+
+[node name="Target_Whole2" parent="." instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -40, 25, 0 )
+
+[node name="Target_Whole3" parent="." instance=ExtResource( 5 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 25, -37.5 )
+
+[node name="Target_Whole4" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1.19249e-08, 0, 1, 0, 1, 0, -1, 0, 1.19249e-08, 38, 25, 0 )
