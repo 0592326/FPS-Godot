@@ -475,3 +475,9 @@ func add_grenade(additional_grenade):
 	grenade_amounts[current_grenade] += additional_grenade
 	grenade_amounts[current_grenade] = clamp(grenade_amounts[current_grenade], 0, 4)
 	# ----------------------------------
+
+	# ----------------------------------
+	# Player hit by turret 
+func bullet_hit(damage, bullet_hit_pos):
+	health -= damage
+	# ----------------------------------
