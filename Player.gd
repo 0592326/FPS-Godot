@@ -1,9 +1,9 @@
 extends KinematicBody
 
-const GRAVITY = -250 # Player gravity
+const GRAVITY = -190 # Player gravity
 var vel = Vector3()
-const MAX_SPEED = 25 # Player move speed
-const JUMP_SPEED = 90 # Jump height/power
+const MAX_SPEED = 20 # Player move speed
+const JUMP_SPEED = 50 # Jump height/power
 const ACCEL = 15 # Time taken to reach max speed
 
 var dir = Vector3()
@@ -16,7 +16,7 @@ var rotation_helper
 
 var MOUSE_SENSITIVITY = 0.125 # Sensitivity
 
-const MAX_SPRINT_SPEED = 50
+const MAX_SPRINT_SPEED = 40
 const SPRINT_ACCEL = 20
 var is_sprinting = false
 

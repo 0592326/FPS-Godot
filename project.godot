@@ -16,8 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Godot FPS"
-run/main_scene="res://Testing_Area.tscn"
+run/main_scene="res://Main_Menu.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Globals="*res://Globals.gd"
 
 [display]
 

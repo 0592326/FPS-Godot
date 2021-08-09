@@ -166,6 +166,7 @@ mesh = SubResource( 4 )
 material/0 = SubResource( 5 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 12.5 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 7 )
@@ -368,7 +369,4 @@ transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 25, 
 transform = Transform( 1.19249e-08, 0, 1, 0, 1, 0, -1, 0, 1.19249e-08, 38, 25, 0 )
 
 [node name="Turret" parent="." instance=ExtResource( 6 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -35, 0, 17.5 )
-
-[node name="Turret2" parent="." instance=ExtResource( 6 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 35, 0, -17.5 )
+transform = Transform( -1, 0, 3.25841e-07, 0, 1, 0, -3.25841e-07, 0, -1, 0, 0, -32.5 )

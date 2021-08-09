@@ -197,6 +197,7 @@ material/3 = null
 
 [node name="Static_Body" type="StaticBody" parent="Base"]
 script = ExtResource( 7 )
+path_to_turret_root = NodePath("../..")
 
 [node name="Collision_Shape" type="CollisionShape" parent="Base/Static_Body"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.68306, 0.587342 )
@@ -237,6 +238,7 @@ transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 4.22
 
 [node name="Static_Body" type="StaticBody" parent="Head"]
 script = ExtResource( 7 )
+path_to_turret_root = NodePath("../..")
 
 [node name="Collision_Shape" type="CollisionShape" parent="Head/Static_Body"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.43577, -3.32666 )
