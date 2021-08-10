@@ -4191,6 +4191,9 @@ margin_left = -21.0
 margin_top = -21.0
 margin_right = 21.0
 margin_bottom = 21.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Bottom_IMG" type="TextureRect" parent="HUD/Crosshair"]
 anchor_left = 0.5
@@ -4198,9 +4201,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -2.5
-margin_top = 4.5
+margin_top = 7.5
 margin_right = 2.5
-margin_bottom = 20.5
+margin_bottom = 23.5
 texture = ExtResource( 7 )
 expand = true
 
@@ -4210,9 +4213,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -2.5
-margin_top = -20.5
+margin_top = -23.0
 margin_right = 2.5
-margin_bottom = -4.5
+margin_bottom = -7.0
 texture = ExtResource( 7 )
 expand = true
 
@@ -4221,9 +4224,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -4.5
+margin_left = -7.5
 margin_top = -2.5
-margin_right = 0.5
+margin_right = -2.5
 margin_bottom = 12.5
 rect_rotation = 90.0
 texture = ExtResource( 7 )
@@ -4234,9 +4237,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 19.5
+margin_left = 22.5
 margin_top = -2.5
-margin_right = 24.5
+margin_right = 27.5
 margin_bottom = 12.5
 rect_rotation = 90.0
 texture = ExtResource( 7 )
