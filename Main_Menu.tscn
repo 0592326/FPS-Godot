@@ -73,6 +73,7 @@ __meta__ = {
 testing_area_scene = "res://Testing_Area.tscn"
 space_level_scene = "res://assets/Space_Level_Objects/Space_Level.tscn"
 ruins_level_scene = "res://assets/Ruin_Level_Objects/Ruins_Level.tscn"
+gloom_level_scene = "res://Gloom.tscn"
 
 [node name="Background_Animation" type="Spatial" parent="."]
 
@@ -200,12 +201,35 @@ text = "Back"
 [node name="Button_Level_Testing_Area" type="Button" parent="Level_Select_Menu"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -70.0
+margin_left = 10.0904
 margin_top = 113.0
-margin_right = 70.0
+margin_right = 150.09
 margin_bottom = 253.0
 
 [node name="Icon" type="TextureRect" parent="Level_Select_Menu/Button_Level_Testing_Area"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -60.0
+margin_top = -60.0
+margin_right = 60.0
+margin_bottom = 60.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Button_Level_Gloom" type="Button" parent="Level_Select_Menu"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -148.756
+margin_top = 113.0
+margin_right = -8.75555
+margin_bottom = 253.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="Level_Select_Menu/Button_Level_Gloom"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
