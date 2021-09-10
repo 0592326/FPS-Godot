@@ -4207,18 +4207,6 @@ margin_bottom = 23.5
 texture = ExtResource( 7 )
 expand = true
 
-[node name="Top_IMG" type="TextureRect" parent="HUD/Crosshair"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -2.5
-margin_top = -23.0
-margin_right = 2.5
-margin_bottom = -7.0
-texture = ExtResource( 7 )
-expand = true
-
 [node name="Left_IMG" type="TextureRect" parent="HUD/Crosshair"]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -4227,20 +4215,23 @@ anchor_bottom = 0.5
 margin_left = -7.5
 margin_top = -2.5
 margin_right = -2.5
-margin_bottom = 12.5
+margin_bottom = 22.5
 rect_rotation = 90.0
 texture = ExtResource( 7 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Right_IMG" type="TextureRect" parent="HUD/Crosshair"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 22.5
+margin_left = 32.5
 margin_top = -2.5
-margin_right = 27.5
-margin_bottom = 12.5
+margin_right = 37.5
+margin_bottom = 22.5
 rect_rotation = 90.0
 texture = ExtResource( 7 )
 expand = true
@@ -4251,6 +4242,9 @@ margin_top = 560.0
 margin_right = 370.0
 margin_bottom = 720.0
 custom_styles/panel = SubResource( 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Panel_border" type="Panel" parent="HUD/Panel"]
 modulate = Color( 0.679688, 0.679688, 0.679688, 1 )
