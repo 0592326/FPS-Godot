@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://RigidBody_hit_test.gd" type="Script" id=2]
@@ -7,14 +7,28 @@
 [ext_resource path="res://Target.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Turret.tscn" type="PackedScene" id=6]
 
+[sub_resource type="SpatialMaterial" id=18]
+albedo_color = Color( 0.203922, 0.282353, 0.290196, 1 )
+metallic = 1.0
+
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 80, 80 )
 
 [sub_resource type="SpatialMaterial" id=2]
-albedo_color = Color( 0.609375, 0.609375, 0.609375, 1 )
+albedo_color = Color( 0.054902, 0.231373, 0.105882, 1 )
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 40, 0.1, 40 )
+
+[sub_resource type="SpatialMaterial" id=22]
+albedo_color = Color( 0.141176, 0.141176, 0.141176, 1 )
+
+[sub_resource type="CubeMesh" id=19]
+
+[sub_resource type="SpatialMaterial" id=20]
+albedo_color = Color( 0.054902, 0.231373, 0.105882, 1 )
+
+[sub_resource type="BoxShape" id=21]
 
 [sub_resource type="SphereMesh" id=4]
 radius = 3.0
@@ -91,6 +105,8 @@ bounce = 0.6
 [node name="Box" type="Spatial" parent="."]
 
 [node name="Floor_plane" type="MeshInstance" parent="Box"]
+transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0, 0 )
+material_override = SubResource( 18 )
 mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
 
@@ -100,10 +116,10 @@ material/0 = SubResource( 2 )
 shape = SubResource( 3 )
 
 [node name="Celing_plane" type="MeshInstance" parent="Box"]
-transform = Transform( 1, 0, 0, 0, -1, 3.25841e-07, 0, -3.25841e-07, -1, 0, 75.2188, 0 )
+transform = Transform( 4.1, 0, 0, 0, -1, 1.5966e-06, 0, -3.89414e-07, -4.1, 0, 35.5431, 0 )
 cast_shadow = 2
 mesh = SubResource( 1 )
-material/0 = SubResource( 2 )
+material/0 = SubResource( 22 )
 
 [node name="StaticBody" type="StaticBody" parent="Box/Celing_plane"]
 
@@ -111,7 +127,7 @@ material/0 = SubResource( 2 )
 shape = SubResource( 3 )
 
 [node name="Wall_1" type="MeshInstance" parent="Box"]
-transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, -0.640566, 37.0752, 39.6568 )
+transform = Transform( 4, 0, 0, 0, 4.37114e-08, 1, 0, -1, 4.37114e-08, -0.707956, 36.4697, 159.989 )
 cast_shadow = 2
 mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
@@ -122,7 +138,7 @@ material/0 = SubResource( 2 )
 shape = SubResource( 3 )
 
 [node name="Wall_2" type="MeshInstance" parent="Box"]
-transform = Transform( -1.62921e-07, -1, 0.000345306, 0, 0.000345306, 1, -1, 1.62921e-07, -5.62574e-11, 38.2511, 37.0752, 0.0846462 )
+transform = Transform( -4, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -3.49691e-07, 1, 4.37114e-08, -0.641, 37.075, -160 )
 cast_shadow = 2
 mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
@@ -132,19 +148,8 @@ material/0 = SubResource( 2 )
 [node name="CollisionShape" type="CollisionShape" parent="Box/Wall_2/StaticBody"]
 shape = SubResource( 3 )
 
-[node name="Wall_3" type="MeshInstance" parent="Box"]
-transform = Transform( -1.62921e-07, 1, -0.000488118, 0, 0.000488118, 1, 1, 1.62921e-07, -7.95246e-11, -40.2198, 37.0752, 0.0846462 )
-cast_shadow = 2
-mesh = SubResource( 1 )
-material/0 = SubResource( 2 )
-
-[node name="StaticBody" type="StaticBody" parent="Box/Wall_3"]
-
-[node name="CollisionShape" type="CollisionShape" parent="Box/Wall_3/StaticBody"]
-shape = SubResource( 3 )
-
 [node name="Wall_4" type="MeshInstance" parent="Box"]
-transform = Transform( -1, 3.25841e-07, 5.30863e-14, 0, -1.62921e-07, 1, 3.25841e-07, 1, 1.62921e-07, -0.569376, 37.0752, -37.7189 )
+transform = Transform( -1.74846e-07, 1, 4.37114e-08, 0, -4.37114e-08, 1, 4, 4.37114e-08, 1.91069e-15, -160, 37.075, 0 )
 cast_shadow = 2
 mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
@@ -153,6 +158,270 @@ material/0 = SubResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Box/Wall_4/StaticBody"]
 shape = SubResource( 3 )
+
+[node name="Wall_5" type="MeshInstance" parent="Box"]
+transform = Transform( 3.7749e-06, -1, -1.74846e-06, 0, -4.37114e-08, 40, -50, -7.54979e-08, -1.32005e-13, -50, 35, 0 )
+cast_shadow = 2
+mesh = SubResource( 19 )
+material/0 = SubResource( 20 )
+
+[node name="StaticBody" type="StaticBody" parent="Box/Wall_5"]
+transform = Transform( 1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Box/Wall_5/StaticBody"]
+shape = SubResource( 21 )
+
+[node name="Wall_6" type="MeshInstance" parent="Box"]
+transform = Transform( -110, 1.50996e-07, 2.64009e-13, 0, -4.37114e-08, 40, 1.66095e-05, 1, 1.74846e-06, 59, 35, 50 )
+cast_shadow = 2
+mesh = SubResource( 19 )
+material/0 = SubResource( 20 )
+
+[node name="StaticBody" type="StaticBody" parent="Box/Wall_6"]
+transform = Transform( 1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Box/Wall_6/StaticBody"]
+shape = SubResource( 21 )
+
+[node name="Wall_7" type="MeshInstance" parent="Box"]
+transform = Transform( -50, -3.17865e-08, -5.55773e-14, 0, -4.37114e-08, 40, -1.58933e-06, 1, 1.74846e-06, 0, 35, -50 )
+cast_shadow = 2
+mesh = SubResource( 19 )
+material/0 = SubResource( 20 )
+
+[node name="StaticBody" type="StaticBody" parent="Box/Wall_7"]
+transform = Transform( 1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Box/Wall_7/StaticBody"]
+shape = SubResource( 21 )
+
+[node name="Wall_8" type="MeshInstance" parent="Box"]
+transform = Transform( 1.50996e-06, -1, -1.74846e-06, 0, -4.37114e-08, 40, -20, -7.54979e-08, -1.32005e-13, 50, 35, -69 )
+cast_shadow = 2
+mesh = SubResource( 19 )
+material/0 = SubResource( 20 )
+
+[node name="StaticBody" type="StaticBody" parent="Box/Wall_8"]
+transform = Transform( 1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Box/Wall_8/StaticBody"]
+shape = SubResource( 21 )
+
+[node name="Wall_9" type="MeshInstance" parent="Box"]
+transform = Transform( 1.50996e-06, -1, -1.74846e-06, 0, -4.37114e-08, 40, -20, -7.54979e-08, -1.32005e-13, 50, 35, -140 )
+cast_shadow = 2
+mesh = SubResource( 19 )
+material/0 = SubResource( 20 )
+
+[node name="StaticBody" type="StaticBody" parent="Box/Wall_9"]
+transform = Transform( 1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Box/Wall_9/StaticBody"]
+shape = SubResource( 21 )
+
+[node name="Wall_10" type="MeshInstance" parent="Box"]
+transform = Transform( 20, 1.19209e-07, 2.08432e-13, -4.23516e-21, -4.37114e-08, 40, 2.38419e-06, -1, -1.74846e-06, 70, 35, -50 )
+cast_shadow = 2
+mesh = SubResource( 19 )
+material/0 = SubResource( 20 )
+
+[node name="StaticBody" type="StaticBody" parent="Box/Wall_10"]
+transform = Transform( 1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Box/Wall_10/StaticBody"]
+shape = SubResource( 21 )
+
+[node name="Wall_11" type="MeshInstance" parent="Box"]
+transform = Transform( 20, 1.19209e-07, 2.08432e-13, -4.23516e-21, -4.37114e-08, 40, 2.38419e-06, -1, -1.74846e-06, 140, 35, -50 )
+cast_shadow = 2
+mesh = SubResource( 19 )
+material/0 = SubResource( 20 )
+
+[node name="StaticBody" type="StaticBody" parent="Box/Wall_11"]
+transform = Transform( 1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Box/Wall_11/StaticBody"]
+shape = SubResource( 21 )
+
+[node name="Wall_12" type="MeshInstance" parent="Box"]
+transform = Transform( 1.50996e-06, -1, -1.74846e-06, 0, -4.37114e-08, 40, -20, -7.54979e-08, -1.32005e-13, -50, 35, -69 )
+cast_shadow = 2
+mesh = SubResource( 19 )
+material/0 = SubResource( 20 )
+
+[node name="StaticBody" type="StaticBody" parent="Box/Wall_12"]
+transform = Transform( 1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Box/Wall_12/StaticBody"]
+shape = SubResource( 21 )
+
+[node name="Wall_13" type="MeshInstance" parent="Box"]
+transform = Transform( 1.50996e-06, -1, -1.74846e-06, 0, -4.37114e-08, 40, -20, -7.54979e-08, -1.32005e-13, -50, 35, -140 )
+cast_shadow = 2
+mesh = SubResource( 19 )
+material/0 = SubResource( 20 )
+
+[node name="StaticBody" type="StaticBody" parent="Box/Wall_13"]
+transform = Transform( 1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Box/Wall_13/StaticBody"]
+shape = SubResource( 21 )
+
+[node name="Wall_14" type="MeshInstance" parent="Box"]
+transform = Transform( 20, 1.19209e-07, 2.08432e-13, -4.23516e-21, -4.37114e-08, 40, 2.38419e-06, -1, -1.74846e-06, -140, 35, -50 )
+cast_shadow = 2
+mesh = SubResource( 19 )
+material/0 = SubResource( 20 )
+
+[node name="StaticBody" type="StaticBody" parent="Box/Wall_14"]
+transform = Transform( 1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Box/Wall_14/StaticBody"]
+shape = SubResource( 21 )
+
+[node name="Wall_15" type="MeshInstance" parent="Box"]
+transform = Transform( 20, 1.19209e-07, 2.08432e-13, -4.23516e-21, -4.37114e-08, 40, 2.38419e-06, -1, -1.74846e-06, -71, 35, -50 )
+cast_shadow = 2
+mesh = SubResource( 19 )
+material/0 = SubResource( 20 )
+
+[node name="StaticBody" type="StaticBody" parent="Box/Wall_15"]
+transform = Transform( 1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Box/Wall_15/StaticBody"]
+shape = SubResource( 21 )
+
+[node name="Wall_16" type="MeshInstance" parent="Box"]
+transform = Transform( 20, 1.19209e-07, 2.08432e-13, -4.23516e-21, -4.37114e-08, 40, 2.38419e-06, -1, -1.74846e-06, -140, 35, 50 )
+cast_shadow = 2
+mesh = SubResource( 19 )
+material/0 = SubResource( 20 )
+
+[node name="StaticBody" type="StaticBody" parent="Box/Wall_16"]
+transform = Transform( 1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Box/Wall_16/StaticBody"]
+shape = SubResource( 21 )
+
+[node name="Wall_17" type="MeshInstance" parent="Box"]
+transform = Transform( 20, 1.19209e-07, 2.08432e-13, -4.23516e-21, -4.37114e-08, 40, 2.38419e-06, -1, -1.74846e-06, -71, 35, 50 )
+cast_shadow = 2
+mesh = SubResource( 19 )
+material/0 = SubResource( 20 )
+
+[node name="StaticBody" type="StaticBody" parent="Box/Wall_17"]
+transform = Transform( 1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Box/Wall_17/StaticBody"]
+shape = SubResource( 21 )
+
+[node name="Wall_18" type="MeshInstance" parent="Box"]
+transform = Transform( 1.50996e-06, -1, -1.74846e-06, 0, -4.37114e-08, 40, -20, -7.54979e-08, -1.32005e-13, 50, 35, 35 )
+cast_shadow = 2
+mesh = SubResource( 19 )
+material/0 = SubResource( 20 )
+
+[node name="StaticBody" type="StaticBody" parent="Box/Wall_18"]
+transform = Transform( 1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Box/Wall_18/StaticBody"]
+shape = SubResource( 21 )
+
+[node name="Wall_19" type="MeshInstance" parent="Box"]
+transform = Transform( 1.50996e-06, -1, -1.74846e-06, 0, -4.37114e-08, 40, -20, -7.54979e-08, -1.32005e-13, 50, 35, -35 )
+cast_shadow = 2
+mesh = SubResource( 19 )
+material/0 = SubResource( 20 )
+
+[node name="StaticBody" type="StaticBody" parent="Box/Wall_19"]
+transform = Transform( 1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Box/Wall_19/StaticBody"]
+shape = SubResource( 21 )
+
+[node name="Wall_20" type="MeshInstance" parent="Box"]
+transform = Transform( 1.50996e-06, -1, -1.74846e-06, 0, -4.37114e-08, 40, -20, -7.54979e-08, -1.32005e-13, -50, 35, 140 )
+cast_shadow = 2
+mesh = SubResource( 19 )
+material/0 = SubResource( 20 )
+
+[node name="StaticBody" type="StaticBody" parent="Box/Wall_20"]
+transform = Transform( 1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Box/Wall_20/StaticBody"]
+shape = SubResource( 21 )
+
+[node name="Wall_21" type="MeshInstance" parent="Box"]
+transform = Transform( 1.50996e-06, -1, -1.74846e-06, 0, -4.37114e-08, 40, -20, -7.54979e-08, -1.32005e-13, -50, 35, 71 )
+cast_shadow = 2
+mesh = SubResource( 19 )
+material/0 = SubResource( 20 )
+
+[node name="StaticBody" type="StaticBody" parent="Box/Wall_21"]
+transform = Transform( 1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Box/Wall_21/StaticBody"]
+shape = SubResource( 21 )
+
+[node name="Wall_22" type="MeshInstance" parent="Box"]
+transform = Transform( 1.50996e-06, -1, -1.74846e-06, 0, -4.37114e-08, 40, -20, -7.54979e-08, -1.32005e-13, 50, 35, 140 )
+cast_shadow = 2
+mesh = SubResource( 19 )
+material/0 = SubResource( 20 )
+
+[node name="StaticBody" type="StaticBody" parent="Box/Wall_22"]
+transform = Transform( 1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Box/Wall_22/StaticBody"]
+shape = SubResource( 21 )
+
+[node name="Wall_23" type="MeshInstance" parent="Box"]
+transform = Transform( 1.50996e-06, -1, -1.74846e-06, 0, -4.37114e-08, 40, -20, -7.54979e-08, -1.32005e-13, 50, 35, 71 )
+cast_shadow = 2
+mesh = SubResource( 19 )
+material/0 = SubResource( 20 )
+
+[node name="StaticBody" type="StaticBody" parent="Box/Wall_23"]
+transform = Transform( 1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Box/Wall_23/StaticBody"]
+shape = SubResource( 21 )
+
+[node name="Wall_24" type="MeshInstance" parent="Box"]
+transform = Transform( 1.50996e-06, -1, -1.74846e-06, 0, -4.37114e-08, 40, -20, -7.54979e-08, -1.32005e-13, 160, 35, 71 )
+cast_shadow = 2
+mesh = SubResource( 19 )
+material/0 = SubResource( 20 )
+
+[node name="StaticBody" type="StaticBody" parent="Box/Wall_24"]
+transform = Transform( 1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Box/Wall_24/StaticBody"]
+shape = SubResource( 21 )
+
+[node name="Wall_25" type="MeshInstance" parent="Box"]
+transform = Transform( 1.50996e-06, -1, -1.74846e-06, 0, -4.37114e-08, 40, -20, -7.54979e-08, -1.32005e-13, 160, 35, 140 )
+cast_shadow = 2
+mesh = SubResource( 19 )
+material/0 = SubResource( 20 )
+
+[node name="StaticBody" type="StaticBody" parent="Box/Wall_25"]
+transform = Transform( 1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Box/Wall_25/StaticBody"]
+shape = SubResource( 21 )
+
+[node name="Wall_26" type="MeshInstance" parent="Box"]
+transform = Transform( 8.30477e-06, -1, -1.74846e-06, 0, -4.37114e-08, 40, -110, -7.54979e-08, -1.32005e-13, 160, 35, -50 )
+cast_shadow = 2
+mesh = SubResource( 19 )
+material/0 = SubResource( 20 )
+
+[node name="StaticBody" type="StaticBody" parent="Box/Wall_26"]
+transform = Transform( 1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Box/Wall_26/StaticBody"]
+shape = SubResource( 21 )
 
 [node name="OmniLight" type="OmniLight" parent="Box"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 42.005, 0 )
@@ -358,15 +627,22 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 3, 0 )
 
 [node name="Target_Whole" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, 39.5 )
+visible = false
 
 [node name="Target_Whole2" parent="." instance=ExtResource( 5 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -40, 25, 0 )
+visible = false
 
 [node name="Target_Whole3" parent="." instance=ExtResource( 5 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 25, -37.5 )
+visible = false
 
 [node name="Target_Whole4" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1.19249e-08, 0, 1, 0, 1, 0, -1, 0, 1.19249e-08, 38, 25, 0 )
+visible = false
 
 [node name="Turret" parent="." instance=ExtResource( 6 )]
-transform = Transform( -1, 0, 3.25841e-07, 0, 1, 0, -3.25841e-07, 0, -1, 0, 0, -32.5 )
+transform = Transform( 3.57628e-07, 0, 1, 0, 1, 0, -1, 0, 3.57628e-07, 40, 0, -25 )
+
+[node name="Turret2" parent="." instance=ExtResource( 6 )]
+transform = Transform( 3.57628e-07, 0, 1, 0, 1, 0, -1, 0, 3.57628e-07, 40, 0, 25 )

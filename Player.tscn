@@ -3892,16 +3892,20 @@ extents = Vector3( 1.5, 2, 1.5 )
 
 [sub_resource type="SphereMesh" id=23]
 
-[sub_resource type="StyleBoxFlat" id=24]
-bg_color = Color( 0.158587, 0.106689, 0.179688, 1 )
-border_color = Color( 0.277183, 0.201141, 0.304688, 1 )
-corner_radius_top_right = 70
-corner_detail = 3
-anti_aliasing = false
+[sub_resource type="StyleBoxFlat" id=26]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_top = 10
+border_width_right = 15
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_right = 250
+corner_detail = 1
 
 [sub_resource type="DynamicFont" id=25]
-size = 42
+size = 30
+outline_size = 1
 use_filter = true
+extra_spacing_bottom = 10
+extra_spacing_char = 2
 font_data = ExtResource( 8 )
 
 [node name="Player" type="KinematicBody"]
@@ -4180,6 +4184,13 @@ transform = Transform( 1, 0, 0, 0, 0.983001, 0.1836, 0, -0.1836, 0.983001, 0, -0
 [node name="HUD" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 1.1225
+margin_top = 1.1225
+margin_right = 1.12256
+margin_bottom = 1.1225
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Crosshair" type="Control" parent="HUD"]
 modulate = Color( 1, 1, 1, 0.705882 )
@@ -4200,9 +4211,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -2.5
+margin_left = -2.0
 margin_top = 7.5
-margin_right = 2.5
+margin_right = 2.0
 margin_bottom = 23.5
 texture = ExtResource( 7 )
 expand = true
@@ -4213,9 +4224,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -7.5
-margin_top = -2.5
-margin_right = -2.5
-margin_bottom = 22.5
+margin_top = -2.0
+margin_right = -3.5
+margin_bottom = 23.0
 rect_rotation = 90.0
 texture = ExtResource( 7 )
 expand = true
@@ -4229,42 +4240,36 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = 32.5
-margin_top = -2.5
-margin_right = 37.5
-margin_bottom = 22.5
+margin_top = -2.0
+margin_right = 36.5
+margin_bottom = 23.0
 rect_rotation = 90.0
 texture = ExtResource( 7 )
 expand = true
 
 [node name="Panel" type="Panel" parent="HUD"]
-modulate = Color( 1, 1, 1, 0.705882 )
-margin_top = 560.0
-margin_right = 370.0
+margin_top = 573.0
+margin_right = 363.0
 margin_bottom = 720.0
-custom_styles/panel = SubResource( 24 )
+custom_styles/panel = SubResource( 26 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Panel_border" type="Panel" parent="HUD/Panel"]
-modulate = Color( 0.679688, 0.679688, 0.679688, 1 )
-show_behind_parent = true
-margin_top = -10.0
-margin_right = 380.0
-margin_bottom = 160.0
-custom_styles/panel = SubResource( 24 )
-
 [node name="Gun_label" type="Label" parent="HUD/Panel"]
 self_modulate = Color( 1, 1, 1, 0.705882 )
 margin_left = 10.0
-margin_top = 20.0
+margin_top = 20.123
 margin_right = 380.0
-margin_bottom = 109.0
+margin_bottom = 179.123
 custom_fonts/font = SubResource( 25 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Health: 100
 Ammo: 000/000
-"
+Sticky grenade: 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Death_Screen" type="ColorRect" parent="HUD"]
 visible = false
