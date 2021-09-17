@@ -409,7 +409,7 @@ margin_bottom = -20.0
 custom_fonts/font = SubResource( 5 )
 text = "Back"
 
-[node name="Main_Menu" type="Panel" parent="."]
+[node name="Lose_Menu" type="Panel" parent="."]
 margin_left = 282.063
 margin_top = 384.045
 margin_right = 546.063
@@ -419,7 +419,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button_Main_Menu" type="Button" parent="Main_Menu"]
+[node name="Button_Main_Menu" type="Button" parent="Lose_Menu"]
 margin_right = 12.0
 margin_bottom = 20.0
 custom_fonts/font = SubResource( 7 )
@@ -431,7 +431,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Level_Select" type="Panel" parent="."]
+[node name="Lose_Menu_2" type="Panel" parent="."]
 margin_left = 706.466
 margin_top = 384.045
 margin_right = 970.466
@@ -441,7 +441,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button_Level_Select" type="Button" parent="Level_Select"]
+[node name="Button_Level_Select" type="Button" parent="Lose_Menu_2"]
 margin_right = 12.0
 margin_bottom = 20.0
 custom_fonts/font = SubResource( 7 )

@@ -3,6 +3,12 @@ extends Control
 var start_menu
 var level_select_menu
 var options_menu
+var lose_menu
+var lose_menu_2
+var win_menu
+var win_menu_2
+var end_menu
+var end_menu_2
 
 export (String, FILE) var testing_area_scene
 export (String, FILE) var space_level_scene
@@ -13,6 +19,12 @@ func _ready():
 	start_menu = $Start_Menu
 	level_select_menu = $Level_Select_Menu
 	options_menu = $Options_Menu
+	lose_menu = $Lose_Menu
+	lose_menu_2 = $Lose_Menu_2
+	win_menu = $Win_Menu
+	win_menu_2 = $Win_Menu_2
+	end_menu = $End_Menu
+	end_menu_2 = $End_Menu_2
 
 	$Start_Menu/Button_Start.connect("pressed", self, "start_menu_button_pressed", ["start"])
 	$Start_Menu/Button_Open_Godot.connect("pressed", self, "start_menu_button_pressed", ["open_godot"])
@@ -29,6 +41,15 @@ func _ready():
 	$Options_Menu/Button_Fullscreen.connect("pressed", self, "options_menu_button_pressed", ["fullscreen"])
 	$Options_Menu/Check_Button_VSync.connect("pressed", self, "options_menu_button_pressed", ["vsync"])
 	$Options_Menu/Check_Button_Debug.connect("pressed", self, "options_menu_button_pressed", ["debug"])
+
+	#$Lose_Menu/Button_Main_Menu.connect("pressed", self, "lose_menu_button_pressed", ["menu"])
+	#$Lose_Menu_2/Button_Level_Select.connect("pressed", self, "lose_menu_button_pressed", ["level select"])
+
+	#$Win_Menu/Button_Main_Menu.connect("pressed", self, "win_menu_button_pressed", ["menu"])
+	#$Win_Menu_2/Button_Level_Select.connect("pressed", self, "win_menu_2_button_pressed", ["level select"])
+
+	#$End_Menu/Button_Main_Menu.connect("pressed", self, "end_menu_button_pressed", ["menu"])
+	#$End_Menu/Button_Main_Menu.connect("pressed", self, "end_menu_button_pressed", ["quit"])
 
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
@@ -49,7 +70,7 @@ func start_menu_button_pressed(button_name):
 	elif button_name == "quit":
 		get_tree().quit()
 
-
+# BUTTONS TO GO TO DIFFERENT LEVELS - MAIN MENU BUTTONS
 func level_select_menu_button_pressed(button_name):
 	if button_name == "back":
 		start_menu.visible = true
@@ -78,7 +99,6 @@ func options_menu_button_pressed(button_name):
 		OS.vsync_enabled = $Options_Menu/Check_Button_VSync.pressed
 	elif button_name == "debug":
 		get_node("/root/Globals").set_debug_display($Options_Menu/Check_Button_Debug.pressed)
-
 
 func set_mouse_and_joypad_sensitivity():
 	var globals = get_node("/root/Globals")
