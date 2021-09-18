@@ -35,7 +35,7 @@ func fire_weapon():
 
 	ammo_in_weapon -= 1
 
-	player_node.create_sound("Rifle_shot", ray.global_transform.origin)
+	player_node.create_sound("rifle_shot", ray.global_transform.origin)
 
 func equip_weapon():
 	if player_node.animation_manager.current_state == IDLE_ANIM_NAME:
@@ -79,7 +79,7 @@ func reload_weapon():
 			spare_ammo = 0
 
 		player_node.animation_manager.set_animation(RELOADING_ANIM_NAME)
-		player_node.create_sound("Gun_cock", player_node.camera.global_transform.origin)
+		player_node.create_sound("gun_cock", player_node.camera.global_transform.origin)
 
 		return true
 

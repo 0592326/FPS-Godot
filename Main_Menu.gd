@@ -19,12 +19,12 @@ func _ready():
 	start_menu = $Start_Menu
 	level_select_menu = $Level_Select_Menu
 	options_menu = $Options_Menu
-	lose_menu = $Lose_Menu
-	lose_menu_2 = $Lose_Menu_2
-	win_menu = $Win_Menu
-	win_menu_2 = $Win_Menu_2
-	end_menu = $End_Menu
-	end_menu_2 = $End_Menu_2
+	#lose_menu = $Lose_Menu
+	#lose_menu_2 = $Lose_Menu_2
+	#win_menu = $Win_Menu
+	#win_menu_2 = $Win_Menu_2
+	#end_menu = $End_Menu
+	#end_menu_2 = $End_Menu_2
 
 	$Start_Menu/Button_Start.connect("pressed", self, "start_menu_button_pressed", ["start"])
 	$Start_Menu/Button_Open_Godot.connect("pressed", self, "start_menu_button_pressed", ["open_godot"])
