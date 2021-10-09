@@ -13,6 +13,7 @@ var audio_clips = {
 	"pistol_shot": preload("res://Audio/pistol-shot.wav"),
 	"rifle_shot": preload("res://Audio/rifle-shot.wav"),
 	"gun_cock": preload("res://Audio/pistol-cock.wav"),
+	"knife-shing": preload("res://Audio/knife-shing.wav"),
 }
 
 const SIMPLE_AUDIO_PLAYER_SCENE = preload("res://Simple_Audio_Player.tscn")

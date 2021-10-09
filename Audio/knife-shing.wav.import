@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/knife-shing.wav-7800a8f3073c559ae2f84ea693e57f04.sample"
+
+[deps]
+
+source_file="res://Audio/knife-shing.wav"
+dest_files=[ "res://.import/knife-shing.wav-7800a8f3073c559ae2f84ea693e57f04.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

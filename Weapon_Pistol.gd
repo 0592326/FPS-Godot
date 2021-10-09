@@ -76,7 +76,7 @@ func reload_weapon():
 			spare_ammo = 0
 
 		player_node.animation_manager.set_animation(RELOADING_ANIM_NAME)
-		player_node.create_sound("gun_cock", player_node.camera.global_transform.origin)
+		player_node.create_sound("gun_cock", self)
 
 		return true
 

@@ -8,6 +8,8 @@ const ACCEL = 15 # Time taken to reach max speed
 
 var dir = Vector3()
 
+var player_node = null
+
 const DEACCEL= 15 #Time taken to slow down
 const MAX_SLOPE_ANGLE = 40
 
