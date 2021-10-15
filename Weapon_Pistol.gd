@@ -27,13 +27,13 @@ func fire_weapon():
 	var clone = bullet_scene.instance()
 	var scene_root = get_tree().root.get_children()[0]
 	scene_root.add_child(clone)
+	player_node.create_sound("pistol_shot", player_node.transform.origin)
 
 	clone.global_transform = self.global_transform
 	clone.scale = Vector3(4, 4, 4)
 	clone.BULLET_DAMAGE = DAMAGE
 	ammo_in_weapon -= 1
 
-	player_node.create_sound("pistol_shot", self.global_transform.origin)
 
 func equip_weapon():
 	if player_node.animation_manager.current_state == IDLE_ANIM_NAME:
@@ -76,7 +76,7 @@ func reload_weapon():
 			spare_ammo = 0
 
 		player_node.animation_manager.set_animation(RELOADING_ANIM_NAME)
-		player_node.create_sound("gun_cock", self)
+		player_node.create_sound("gun_cock", player_node.camera.global_transform.origin)
 
 		return true
 

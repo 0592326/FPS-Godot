@@ -18,8 +18,11 @@ const CAN_REFILL = false
 
 const RELOADING_ANIM_NAME = ""
 
+var globals
+
 func _ready():
 	pass
+	globals = get_node("/root/Globals")
 
 func fire_weapon():
 	var area = $Area
@@ -61,3 +64,6 @@ func reload_weapon():
 func reset_weapon():
 	ammo_in_weapon = 1
 	spare_ammo = 1
+
+func create_sound(sound_name, position=null):
+	globals.play_sound(sound_name, false, position)
