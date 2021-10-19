@@ -1,25 +1,25 @@
 extends KinematicBody
 
-const GRAVITY = -190 # Player gravity
+const GRAVITY = -110 # Player gravity
 var vel = Vector3()
 const MAX_SPEED = 20 # Player move speed
-const JUMP_SPEED = 50 # Jump height/power
-const ACCEL = 15 # Time taken to reach max speed
+const JUMP_SPEED = 40 # Jump height/power
+const ACCEL = 10 # Time taken to reach max speed
 
 var dir = Vector3()
 
 var player_node = null
 
-const DEACCEL= 15 #Time taken to slow down
+const DEACCEL= 10 #Time taken to slow down
 const MAX_SLOPE_ANGLE = 40
 
 var camera
 var rotation_helper
 
-var MOUSE_SENSITIVITY = 0.125 # Sensitivity
+var MOUSE_SENSITIVITY = 0.15 # Sensitivity
 
-const MAX_SPRINT_SPEED = 40
-const SPRINT_ACCEL = 20
+const MAX_SPRINT_SPEED = 35
+const SPRINT_ACCEL = 10
 var is_sprinting = false
 
 var flashlight
@@ -33,12 +33,12 @@ const MOUSE_SENSITIVITY_SCROLL_WHEEL = 0.08
 const MAX_HEALTH = 150 # This number is the maximum health the player can have.
 
 var grabbed_object = null
-const OBJECT_THROW_FORCE = 120 # The force with which objects are thrpwn by the player.
-const OBJECT_GRAB_DISTANCE = 7 # The distance at which an object is held.
-const OBJECT_GRAB_RAY_DISTANCE = 10 # The distance from which the player can grab objects.
+const OBJECT_THROW_FORCE = 150 # The force with which objects are thrpwn by the player.
+const OBJECT_GRAB_DISTANCE = 10 # The distance at which an object is held.
+const OBJECT_GRAB_RAY_DISTANCE = 15 # The distance from which the player can grab objects.
 
 const RESPAWN_TIME = 4 # Amount of time (in seconds) it takes to respawn.
-var dead_time = 0 # Variable that tracks how lon gthe player has been dead for.
+var dead_time = 0 # Variable that tracks how long the player has been dead for.
 var is_dead = false # Variable that tracks whether or not the player is dead.
 
 var globals
@@ -64,7 +64,7 @@ var grenade_amounts = {"Grenade":2, "Sticky Grenade":2} # amount of grenades the
 var current_grenade = "Grenade"
 var grenade_scene = preload("res://Grenade.tscn")
 var sticky_grenade_scene = preload("res://Sticky_Grenade.tscn") # The force with which grenades are thrown.
-const GRENADE_THROW_FORCE = 50
+const GRENADE_THROW_FORCE = 75
 
 # ----------------------------------
 

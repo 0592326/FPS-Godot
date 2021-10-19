@@ -3892,7 +3892,7 @@ extents = Vector3( 1.5, 2, 1.5 )
 
 [sub_resource type="SphereMesh" id=23]
 
-[sub_resource type="StyleBoxFlat" id=26]
+[sub_resource type="StyleBoxFlat" id=24]
 bg_color = Color( 0, 0, 0, 1 )
 border_width_top = 10
 border_width_right = 15
@@ -4206,52 +4206,153 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Bottom_IMG" type="TextureRect" parent="HUD/Crosshair"]
+[node name="Left_IMG5" type="TextureRect" parent="HUD/Crosshair"]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -2.0
-margin_top = 7.5
-margin_right = 2.0
-margin_bottom = 23.5
-texture = ExtResource( 7 )
-expand = true
-
-[node name="Left_IMG" type="TextureRect" parent="HUD/Crosshair"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -7.5
-margin_top = -2.0
-margin_right = -3.5
-margin_bottom = 23.0
+margin_left = 1.87659
+margin_top = 2.9231
+margin_right = 11.8766
+margin_bottom = 6.9231
 rect_rotation = 90.0
+rect_scale = Vector2( 0.996666, 0.996666 )
 texture = ExtResource( 7 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Right_IMG" type="TextureRect" parent="HUD/Crosshair"]
+[node name="Left_IMG6" type="TextureRect" parent="HUD/Crosshair"]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 32.5
-margin_top = -2.0
-margin_right = 36.5
-margin_bottom = 23.0
+margin_left = 1.95355
+margin_top = -13.1584
+margin_right = 11.9536
+margin_bottom = -9.15845
 rect_rotation = 90.0
+rect_scale = Vector2( 0.996666, 0.996666 )
 texture = ExtResource( 7 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left_IMG" type="TextureRect" parent="HUD/Crosshair"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 0.953247
+margin_top = 4.00031
+margin_right = 8.95325
+margin_bottom = 6.00031
+rect_rotation = 90.0
+rect_scale = Vector2( 0.996666, 0.996666 )
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left_IMG2" type="TextureRect" parent="HUD/Crosshair"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 0.876282
+margin_top = -12.0425
+margin_right = 8.87628
+margin_bottom = -10.0425
+rect_rotation = 90.0
+rect_scale = Vector2( 0.996666, 0.996666 )
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left_IMG7" type="TextureRect" parent="HUD/Crosshair"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -3.07983
+margin_top = -2.15955
+margin_right = 0.920166
+margin_bottom = 7.84045
+rect_rotation = 90.0
+rect_scale = Vector2( 0.996666, 0.996666 )
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left_IMG8" type="TextureRect" parent="HUD/Crosshair"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 12.8478
+margin_top = -2.08258
+margin_right = 16.8478
+margin_bottom = 7.91742
+rect_rotation = 90.0
+rect_scale = Vector2( 0.996666, 0.996666 )
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left_IMG3" type="TextureRect" parent="HUD/Crosshair"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -4.00317
+margin_top = -1.08228
+margin_right = -2.00317
+margin_bottom = 6.91772
+rect_rotation = 90.0
+rect_scale = Vector2( 0.996666, 0.996666 )
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left_IMG4" type="TextureRect" parent="HUD/Crosshair"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 11.8365
+margin_top = -1.08228
+margin_right = 13.8365
+margin_bottom = 6.91772
+rect_rotation = 90.0
+rect_scale = Vector2( 0.996666, 0.996666 )
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Panel" type="Panel" parent="HUD"]
 margin_top = 573.0
 margin_right = 363.0
 margin_bottom = 720.0
-custom_styles/panel = SubResource( 26 )
+custom_styles/panel = SubResource( 24 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
