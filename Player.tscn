@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://assets/Colors.material" type="Material" id=1]
 [ext_resource path="res://assets/Emission.material" type="Material" id=2]
@@ -3908,6 +3908,20 @@ extra_spacing_bottom = 10
 extra_spacing_char = 2
 font_data = ExtResource( 8 )
 
+[sub_resource type="StyleBoxFlat" id=27]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 15
+border_width_top = 10
+border_color = Color( 1, 0, 0, 1 )
+border_blend = true
+corner_radius_top_left = 250
+corner_detail = 1
+
+[sub_resource type="DynamicFont" id=26]
+size = 100
+outline_size = 1
+font_data = ExtResource( 8 )
+
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 9 )
 
@@ -4160,6 +4174,10 @@ shape = SubResource( 22 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.436506, 11.3604, 4.77607 )
 script = ExtResource( 11 )
 
+[node name="Ray_Cast2" type="RayCast" parent="Rotation_Helper/Gun_Fire_Points/Pistol_Point"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.273191, -0.8997, 2.26824 )
+cast_to = Vector3( 0, 0, 80 )
+
 [node name="Gun_Aim_Point" type="Spatial" parent="Rotation_Helper"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.307539, 20.0487 )
 
@@ -4372,11 +4390,34 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Panel-Score" type="Panel" parent="HUD"]
+margin_left = 916.305
+margin_top = 573.0
+margin_right = 1279.31
+margin_bottom = 720.0
+custom_styles/panel = SubResource( 27 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="HUD/Panel-Score"]
+self_modulate = Color( 1, 1, 1, 0.705882 )
+margin_left = 148.041
+margin_top = 35.9898
+margin_right = 518.041
+margin_bottom = 194.99
+custom_fonts/font = SubResource( 26 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "200"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Death_Screen" type="ColorRect" parent="HUD"]
 visible = false
 margin_right = 1280.0
 margin_bottom = 720.0
-color = Color( 0.140625, 0.140625, 0.140625, 0.901961 )
+color = Color( 0.231373, 0, 0, 0.901961 )
 
 [node name="Label" type="Label" parent="HUD/Death_Screen"]
 margin_right = 1280.0

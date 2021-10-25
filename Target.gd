@@ -19,24 +19,26 @@ func _ready():
 	target_collision_shape = $Collision_Shape
 
 
-func _physics_process(delta):
-	if target_respawn_timer > 0:
-		target_respawn_timer -= delta
+#func _physics_process(delta):
+#	if target_respawn_timer > 0:
+#		target_respawn_timer -= delta
 
-		if target_respawn_timer <= 0:
+#		if target_respawn_timer <= 0:
 
-			for child in broken_target_holder.get_children():
-				child.queue_free()
+#			for child in broken_target_holder.get_children():
+#				child.queue_free()
 
-			target_collision_shape.disabled = false
-			visible = true
-			current_health = TARGET_HEALTH
+#			target_collision_shape.disabled = false
+#			visible = true
+#			current_health = TARGET_HEALTH
 
 
 func bullet_hit(damage, bullet_transform):
 	current_health -= damage
 
 	if current_health <= 0:
+		Globals.playerScore += 10
+		print (Globals.playerScore)
 		var clone = destroyed_target.instance()
 		broken_target_holder.add_child(clone)
 

@@ -27,6 +27,9 @@ var canvas_layer = null # Allows GUI/UI to always stay on top.
 const DEBUG_DISPLAY_SCENE = preload("res://Debug_Display.tscn") # Loads the debug scene.
 var debug_display = null
 
+var playerScore = 0 # This is the player's score.
+# It will start at 0 because here it is set to 0.
+
 # ------------------------------------
 
 func _ready():

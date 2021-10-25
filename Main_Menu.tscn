@@ -106,8 +106,7 @@ custom_fonts/font = SubResource( 5 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 3
 custom_constants/shadow_offset_y = 3
-text = "Godot 3
-FPS Tutorial"
+text = "Gloom"
 align = 1
 valign = 1
 __meta__ = {
@@ -199,6 +198,7 @@ custom_fonts/font = SubResource( 5 )
 text = "Back"
 
 [node name="Button_Level_Testing_Area" type="Button" parent="Level_Select_Menu"]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = 10.0904
@@ -221,10 +221,10 @@ expand = true
 [node name="Button_Level_Gloom" type="Button" parent="Level_Select_Menu"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -148.756
-margin_top = 113.0
-margin_right = -8.75555
-margin_bottom = 253.0
+margin_left = -73.9354
+margin_top = 274.884
+margin_right = 66.065
+margin_bottom = 414.884
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -242,12 +242,16 @@ texture = ExtResource( 3 )
 expand = true
 
 [node name="Button_Level_Space" type="Button" parent="Level_Select_Menu"]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -70.0
 margin_top = 275.0
 margin_right = 70.0
 margin_bottom = 415.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Icon" type="TextureRect" parent="Level_Select_Menu/Button_Level_Space"]
 anchor_left = 0.5
@@ -262,6 +266,7 @@ texture = ExtResource( 4 )
 expand = true
 
 [node name="Button_Level_Ruins" type="Button" parent="Level_Select_Menu"]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -70.0
