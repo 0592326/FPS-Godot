@@ -3894,9 +3894,10 @@ extents = Vector3( 1.5, 2, 1.5 )
 
 [sub_resource type="StyleBoxFlat" id=24]
 bg_color = Color( 0, 0, 0, 1 )
-border_width_top = 10
-border_width_right = 15
-border_color = Color( 1, 1, 1, 1 )
+border_width_top = 15
+border_width_right = 20
+border_color = Color( 0, 1, 0.52549, 1 )
+border_blend = true
 corner_radius_top_right = 250
 corner_detail = 1
 
@@ -3908,16 +3909,16 @@ extra_spacing_bottom = 10
 extra_spacing_char = 2
 font_data = ExtResource( 8 )
 
-[sub_resource type="StyleBoxFlat" id=27]
+[sub_resource type="StyleBoxFlat" id=26]
 bg_color = Color( 0, 0, 0, 1 )
-border_width_left = 15
-border_width_top = 10
-border_color = Color( 1, 0, 0, 1 )
+border_width_left = 20
+border_width_top = 15
+border_color = Color( 0, 1, 0.52549, 1 )
 border_blend = true
 corner_radius_top_left = 250
 corner_detail = 1
 
-[sub_resource type="DynamicFont" id=26]
+[sub_resource type="DynamicFont" id=27]
 size = 100
 outline_size = 1
 font_data = ExtResource( 8 )
@@ -4145,7 +4146,8 @@ script = ExtResource( 10 )
 transform = Transform( -1, 0, 3.25841e-07, 0, 1, 0, -3.25841e-07, 0, -1, 0, -0.307539, -0.0646362 )
 current = true
 fov = 90.0
-far = 180.0
+near = 1.0
+far = 500.0
 
 [node name="Gun_Fire_Points" type="Spatial" parent="Rotation_Helper"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.3914, 0 )
@@ -4395,7 +4397,7 @@ margin_left = 916.305
 margin_top = 573.0
 margin_right = 1279.31
 margin_bottom = 720.0
-custom_styles/panel = SubResource( 27 )
+custom_styles/panel = SubResource( 26 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -4406,7 +4408,7 @@ margin_left = 148.041
 margin_top = 35.9898
 margin_right = 518.041
 margin_bottom = 194.99
-custom_fonts/font = SubResource( 26 )
+custom_fonts/font = SubResource( 27 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "200"
 __meta__ = {

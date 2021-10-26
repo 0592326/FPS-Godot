@@ -434,8 +434,9 @@ func _input(event):
 						mouse_scroll_value = round_mouse_scroll_value
 
 func process_UI(delta):
-	# Below updates the player's score.
+	# Updates the player's score.
 	$"HUD/Panel-Score/Score".text = str(Globals.playerScore)
+	
 	#UI Processing
 	
 	# Text that appears on the HUD.
